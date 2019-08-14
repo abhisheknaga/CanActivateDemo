@@ -1,0 +1,33 @@
+<form [formGroup]="loginForm" class="form-horizontal" (ngSubmit)="saveEmployee()">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Login Form</h3>
+    </div>
+    <div class="panel-body">
+      <div class="form-group" [ngClass]="{'has-error': formErrors.loginId}">
+        <label for="loginId" class="control-label col-sm-2">ID</label>
+        <div class="col-sm-10">
+          <input id="loginId" type="text" formControlName="loginId" class="form-control" (blur)="validateLoginForm()">
+          <span class="help-block" *ngIf="formErrors.loginId">
+            {{ formErrors.loginId }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error': formErrors.loginPassword}">
+        <label for="loginPassword" class="control-label col-sm-2">Password</label>
+        <div class="col-sm-10">
+          <input id="loginPassword" type="text" formControlName="loginPassword" class="form-control"
+            (blur)="validateLoginForm()">
+          <span class="help-block" *ngIf="formErrors.loginPassword">
+            {{formErrors.loginPassword}}
+          </span>
+        </div>
+      </div>
+
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">Submit</button>
+    </div>
+  </div>
+</form>

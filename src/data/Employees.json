@@ -1,0 +1,14 @@
+[
+    {
+        "loginId": "abc@gmail.com",
+        "loginPassword": "abc"
+    },
+    {
+        "loginId": "def@gmail.com",
+        "loginPassword": "def"
+    },
+    {
+        "loginId": "ghi@gmail.com",
+        "loginPassword": "ghi"
+    }
+]
