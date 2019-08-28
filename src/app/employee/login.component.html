@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" class="form-horizontal" (ngSubmit)="saveEmployee()">
+<form style="margin-top: 9%" [formGroup]="loginForm" class="form-horizontal" (ngSubmit)="saveEmployee()">
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h3 class="panel-title">Login Form</h3>
@@ -27,7 +27,7 @@
 
     </div>
     <div class="panel-footer">
-      <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">Submit</button>
+      <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">Login</button>
     </div>
   </div>
 </form>

@@ -13,13 +13,24 @@ export class EmployeeDetailsGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const employeeExists = true;
-    if (employeeExists) {
-      // localStorage.setItem();
+    if (this.getToken()) {
       return true;
     } else {
-      this.router.navigate(['login']);
+      this.router.navigate(['/login']);
       return false;
     }
+  }
+
+  storeToken(tokenValue: string) {
+    localStorage.setItem('token', tokenValue);
+  }
+
+  getToken(): string {
+    return localStorage.getItem('token');
+  }
+
+  removeToken() {
+    localStorage.removeItem('token');
   }
 
 }

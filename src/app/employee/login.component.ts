@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EmployeeDetailsGuardService } from '../services/employee-details-guard.service';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  name = 'abhishek';
   loginForm: FormGroup;
   validationMessages = {
     loginId: {
@@ -21,7 +23,8 @@ export class LoginComponent implements OnInit {
     loginId: '',
     loginPassword: ''
   };
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router,
+              private employeeDetailsGuardService: EmployeeDetailsGuardService) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -52,6 +55,7 @@ export class LoginComponent implements OnInit {
 
   saveEmployee() {
     console.log(this.loginForm);
+    this.employeeDetailsGuardService.storeToken('abhi');
     this.router.navigate(['/welcome']);
   }
 
